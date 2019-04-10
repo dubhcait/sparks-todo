@@ -56,7 +56,7 @@ Step 3. Spruce up the user interface with CSS, web fonts and images
 
 ## Accessibility
 
-![](accessibility.png)
+![](./assets/accessibility.png)
 
 ## 🤷‍♂️ Issues and what we struggled with:
 - starting the project with JavaScript (instead of HTML and styling)
@@ -67,7 +67,7 @@ Step 3. Spruce up the user interface with CSS, web fonts and images
 ## 🧗‍♂️ What we've learned:
 
 ### 1. TDD is testing, in more ways than one!
-![img_5101](/tdd-in-a-nutshell.png)
+![img_5101](./assets/tdd-in-a-nutshell.png)
 
 We struggled to write tests for functions that we hadn't yet written. This was frustrating at first, especially because we thought we new ways to write the same code that would work without testing. As the project went on, it started to make more sense - the point of testing before writing the code was to make sure we wrote code as concisely as possible, and only for functions that were essential for the project requirements.
 
@@ -85,7 +85,7 @@ Tape has two methods for comparing `actual` and `expected` - `equal` and `deepEq
 
 This prevents ...
 
-![img_5101](/confused-keanu.jpg)
+![img_5101](./assets/confused-keanu.jpg)
 
 ### 4. Communicating with other teams is useful
 
