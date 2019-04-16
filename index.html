@@ -28,5 +28,23 @@
 </body>
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>
+<script>
+    
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('service-worker.js')
+        .then(function(registration) {
+            // Registration Success
+            console.log(
+                '[serviceWorker]: registration successful with scope: ',
+                registration.scope
+            );
+        })
+        .catch(function(err) {
+            // Registration failed :(
+            console.log('[serviceWorker] registration failed', err);
+        });
+}
+</script>
 
 </html>
