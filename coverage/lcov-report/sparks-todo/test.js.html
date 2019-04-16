@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for sparks-todo/test.js</title>
+    <title>Code coverage report for sparks-todo\test.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>64/64</span>
+        <span class='fraction'>65/65</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>64/64</span>
+        <span class='fraction'>65/65</span>
       </div>
     </div>
   </div>
@@ -161,7 +161,9 @@
 116
 117
 118
-119</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+119
+120
+121</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -205,6 +207,8 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,10 +283,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var test = require('tape');
-var logic = require('./logic');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let test = require('tape');
+let logic = require('./logic');
 &nbsp;
-var exampleArray = [{
+let exampleArray = [{
     id: 0,
     description: 'smash avocados',
     done: true,
@@ -299,7 +303,7 @@ var exampleArray = [{
   },
 ];
 &nbsp;
-var newArray = [{
+let newArray = [{
   id: 0,
   description: 'make smoothie out of things that should really be cooked',
   done: false,
@@ -311,7 +315,7 @@ test('Example', function (t) {
   t.end();
 });
 &nbsp;
-test("To-do output", function (t) {
+test("To-do output of addTodo", function (t) {
   const testArray = logic.addTodo(exampleArray, "avocado");
   const actual = Array.isArray(testArray);
   const expected = true;
@@ -319,15 +323,17 @@ test("To-do output", function (t) {
   t.end();
 })
 &nbsp;
-test("To-do output", function (t) {
-  const actual = exampleArray;
+test("Test old array isn't altered by addTodo", function (t) {
   const expected = exampleArray.slice();
+  const testArray = logic.addTodo(exampleArray, "avocado");
+  const actual = exampleArray;
+&nbsp;
   logic.addTodo(exampleArray, newArray);
   t.deepEqual(actual, expected, "Test old array doesn't change");
   t.end();
 })
 &nbsp;
-test("To-do output", function (t) {
+test("Test that input is put as new objects description by addTodo", function (t) {
   const testArray = logic.addTodo(exampleArray, "avocado");
   const actual = testArray[testArray.length - 1].description;
   const expected = "avocado";
@@ -335,7 +341,7 @@ test("To-do output", function (t) {
   t.end();
 });
 &nbsp;
-test("To-do output", function (t) {
+test("Test that default done attribute added is false, addTodo", function (t) {
   const testArray = logic.addTodo(exampleArray, "avocado");
   const actual = testArray[testArray.length - 1].done;
   const expected = false;
@@ -343,7 +349,7 @@ test("To-do output", function (t) {
   t.end();
 });
 &nbsp;
-test("To-do output", (t) =&gt; {
+test("Test deleteTodo remove an object", (t) =&gt; {
   const testArray = logic.deleteTodo(exampleArray, 1);
   const actual = testArray.length;
   const expected = 2;
@@ -352,7 +358,7 @@ test("To-do output", (t) =&gt; {
 });
 &nbsp;
 &nbsp;
-test("To-do output", (t) =&gt; {
+test("Test The targeted id is removed by deleteTodo", (t) =&gt; {
   const testArray = logic.deleteTodo(exampleArray, 1);
   const actual = testArray.includes(testArray.id === 1);
   const expected = false;
@@ -363,7 +369,7 @@ test("To-do output", (t) =&gt; {
 &nbsp;
 &nbsp;
 &nbsp;
-test("To-do output", (t) =&gt; {
+test("Testing markTodo changes done value", (t) =&gt; {
   const testArray = logic.markTodo(exampleArray, 1);
   const actual = testArray[1].done
   console.log(testArray);
@@ -372,7 +378,7 @@ test("To-do output", (t) =&gt; {
   t.end();
 });
 &nbsp;
-test("To-do output", (t) =&gt; {
+test("Testing markTodo changes done value from true to false", (t) =&gt; {
   const testArray = logic.markTodo(exampleArray, 0);
   const actual = testArray[0].done
   console.log(testArray);
@@ -381,7 +387,7 @@ test("To-do output", (t) =&gt; {
   t.end();
 });
 &nbsp;
-test("To-do output", (t) =&gt; {
+test("Testing markTodo does not change the 'done' value of non targeted objects", (t) =&gt; {
   const testArray = logic.markTodo(exampleArray, 0);
   const actual = testArray[1].done
   console.log(testArray);
@@ -403,7 +409,7 @@ test("To-do output", (t) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 15 2019 12:43:26 GMT+0000 (Greenwich Mean Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Apr 16 2019 19:00:50 GMT+0100 (Irish Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
