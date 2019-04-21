@@ -5,7 +5,14 @@ const urlsToCache = [
     './',
     './index.html',
     './manifest.json',
-   './'
+   './js/dom.js',
+   'js/logic.js',
+   './assets/logo/chrome/chrome-favicon-16-16.png',
+   './css/normalise.css',
+   './css/style.css',
+   './assets/OpenDyslexic-Regular.woff',
+   './assets/images/bin.svg',
+   './assets/images/tick.svg'
 ];
 
 // Set the callback for the install step

@@ -1,5 +1,5 @@
 let test = require('tape');
-let logic = require('./logic');
+let logic = require('../logic');
 
 let exampleArray = [{
     id: 0,
